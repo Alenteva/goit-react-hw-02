@@ -9,11 +9,28 @@ import Notification from './components/Feedback/notification';
 
 function App() {
   // const [count, setCount] = useState(0);
-  const [feedbackTypes, setfeedbackType] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+
+  const [feedbackTypes, setfeedbackType] = useState(() => {
+    const savedFeedbackTypes = JSON.parse(
+      localStorage.getItem('feedbackTypes')
+    );
+    if (savedFeedbackTypes !== null) {
+      return savedFeedbackTypes;
+    }
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem(
+      'saved-feedbackTypes',
+      JSON.stringify({ feedbackTypes })
+    );
+  }, [feedbackTypes]);
+
   const updateFeedback = feedbackType => {
     setfeedbackType({
       ...feedbackTypes,
@@ -32,7 +49,7 @@ function App() {
       bad: 0,
     });
   };
-  useEffect(() => {}, []);
+
   return (
     <>
       <Description />
