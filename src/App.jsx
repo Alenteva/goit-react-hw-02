@@ -25,7 +25,7 @@ function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem('saved-feedbackTypes', JSON.stringify(feedbackTypes));
+    localStorage.setItem('feedbackTypes', JSON.stringify(feedbackTypes));
   }, [feedbackTypes]);
 
   const updateFeedback = feedbackType => {
