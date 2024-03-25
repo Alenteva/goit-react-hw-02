@@ -1,3 +1,9 @@
 .optionsBox {
   display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.optionsButton {
+  box-shadow: 10px 15px 19px -4px #844f69;
+  background-color: rgb(228, 213, 238);
 }
